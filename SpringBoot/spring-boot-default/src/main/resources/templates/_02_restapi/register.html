@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+    <body>
+
+    <form id="dynamic-form">
+        <fieldset>
+            <legend> 폼전송 실습 </legend>
+            이름 : <input type="text" name="name"><br />
+            성별 : <input type="radio" name ="gender" value="남자" />남자
+            <input type="radio" name ="gender" value="여자" />여자<br />
+            생년월일 :
+            <select name="year" required>
+                <option th:each="year : ${#numbers.sequence(1900, #dates.year(#dates.createNow()))}"
+                        th:value="${year}"
+                        th:text="${year}"
+                        th:selected="${year == #dates.year(#dates.createNow())}">
+                </option>
+            </select>년
+            <select name="month" required>
+                <option th:each="month : ${#numbers.sequence(1, 12)}"
+                        th:value="${month}"
+                        th:text="${month}"
+                        th:selected="${month == #dates.month(#dates.createNow())}">
+                </option>
+            </select>  월
+            <select name="day" required>
+                <option th:each="day : ${#numbers.sequence(1, 31)}"
+                        th:value="${day}"
+                        th:text="${day}"
+                        th:selected="${day == #dates.day(#dates.createNow())}">
+                </option>
+            </select>  일<br>
+            관심사 :
+            <input name="hobby" type="checkbox" value="여행"> 여행
+            <input name="hobby" type="checkbox" value="패션"> 패션
+            <input name="hobby" type="checkbox" value="음식"> 음식
+        </fieldset>
+        <button type="button" onclick="submit2();">회원가입</button>
+    </form>
+    <script>
+        function submit2(){
+            const form = document.getElementById("dynamic-form");
+            axios.post("/submit", {
+                name: form.name.value,
+                gender: form.gender.value,
+                year: form.year.value,
+                month: form.month.value,
+                day:form.day.value,
+                hobby:form.hobby.value
+            })
+            .then((res)=>{
+                console.log(`회원가입이 완료되었습니다,${res.data} 님!`);
+            })
+            .catch((err) =>{
+                console.log(err);
+            });
+        }
+    </script>
+    </body>
+</html>

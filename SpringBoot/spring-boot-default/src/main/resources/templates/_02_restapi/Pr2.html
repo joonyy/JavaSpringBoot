@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/js/Pr2.js" defer></script>
+
+    </head>
+    <body>
+    <form id="user-form">
+        <fieldset>
+            <legend> 회원관리 실습 </legend>
+            <span class="isLoggedIn">LoggedIn = false</span><br/>
+            이름 : <input type="text" name="name"><br />
+            비밀번호 : <input type="text" name="password">
+        </fieldset>
+        <button type="button" onclick="register();">회원가입</button>
+        <button type="button" onclick="login();">로그인</button>
+        <button type="button" onclick="updateUser();">회원정보 수정</button>
+        <button type="button" onclick="deleteUser();">회원 탈퇴</button>
+    </form>
+    </body>
+</html>

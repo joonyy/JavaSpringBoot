@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Post Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/post.css">
+</head>
+<body>
+<h1 id="formTitle">Create Post</h1>
+<form id="postForm">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+    </div>
+    <div>
+        <label for="post">Post:</label>
+        <input type="post" id="post" required>
+    </div>
+    <button type="submit" id="submitButton" class="btn">작성하기</button>
+</form>
+<a href="/posts" class="btn" style="margin-top: 10px;">목록으로</a>
+<script>x
+    let userId = null;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const pathParts = window.location.pathname.split('/');
+        const lastPart = pathParts[pathParts.length - 1];
+
+        if (lastPart === 'edit') {
+            userId = pathParts[pathParts.length - 2];
+            document.getElementById('formTitle').textContent = 'Edit Post';
+            document.getElementById('submitButton').textContent = '수정하기';
+            fetchUser(userId);
+        } else {
+            userId = null;
+            document.getElementById('formTitle').textContent = 'Create Post';
+            document.getElementById('submitButton').textContent = '작성하기';
+        }
+
+        document.getElementById('postForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (userId) {
+                updatePost();
+            } else {
+                createPost();
+            }
+        });
+    });
+
+    function fetchUser(id) {
+        axios.get('/api/users/' + id)
+            .then(function (response) {
+                const user = response.data;
+                document.getElementById('username').value = user.username;
+                document.getElementById('email').value = user.email;
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+    }
+
+    function createUser() {
+        const userData = {
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value
+        };
+
+        axios.post('/api/users', userData)
+            .then(function (response) {
+                window.location.href = '/users';
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+    }
+
+    function updateUser() {
+        const userData = {
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value
+        };
+
+        axios.put('/api/users/' + userId, userData)
+            .then(function (response) {
+                window.location.href = '/users';
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+    }
+</script>
+</body>
+</html>
