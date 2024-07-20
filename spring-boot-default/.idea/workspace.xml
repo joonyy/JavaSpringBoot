@@ -4,7 +4,76 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94a4fb6b-91ad-4460-9828-8bca4cf58342" name="변경" comment="study : DTO,VO 및 주요 어노테이션 학습" />
+    <list default="true" id="94a4fb6b-91ad-4460-9828-8bca4cf58342" name="변경" comment="study : DTO,VO 및 주요 어노테이션 학습">
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/SpringBootDefaultApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/_02_dto_vo/PointExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/_02_dto_vo/UserExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/_02_dto_vo/dto/UserDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/_02_dto_vo/vo/Point.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/controller/_01_thymeleaf/AgeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/controller/_01_thymeleaf/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/controller/_01_thymeleaf/personController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/controller/_02_restapi/FormController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/controller/_02_restapi/Pr2Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/controller/_02_restapi/RegisterController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/controller/_02_restapi/RestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/controller/_02_restapi/introController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/dto/UserDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/vo/Pr2VO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/vo/RegisterVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/java/codingon_kdt/spring_boot_default/vo/UserVO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/static/css/req.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/static/hello.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/static/hello.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/static/hello.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/static/image/cat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/static/image/dog.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/static/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/static/js/Pr2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/static/js/req.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/templates/_01_thymeleaf/age.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/templates/_01_thymeleaf/hi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/templates/_01_thymeleaf/people.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/templates/_02_restapi/Pr2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/templates/_02_restapi/form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/templates/_02_restapi/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/templates/_02_restapi/req.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/main/resources/templates/_02_restapi/res.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-default/src/test/java/codingon_kdt/spring_boot_default/SpringBootDefaultApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/java/codingon/spring_boot_mybatis/SpringBootMybatisApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/java/codingon/spring_boot_mybatis/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/java/codingon/spring_boot_mybatis/controller/ViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/java/codingon/spring_boot_mybatis/domain/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/java/codingon/spring_boot_mybatis/dto/UserDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/java/codingon/spring_boot_mybatis/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/java/codingon/spring_boot_mybatis/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/resources/mybatis-mapper/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/resources/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/resources/static/user.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/resources/templates/userForm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/main/resources/templates/userList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBoot/spring-boot-mybatis/src/test/java/codingon/spring_boot_mybatis/SpringBootMybatisApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-jpa/src/main/java/codingon_kdt/spring_boot_jpa/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-jpa/src/main/java/codingon_kdt/spring_boot_jpa/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-jpa/src/main/java/codingon_kdt/spring_boot_jpa/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-jpa/src/main/java/codingon_kdt/spring_boot_jpa/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-boot-jpa/src/main/java/codingon_kdt/spring_boot_jpa/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-boot-jpa/src/main/java/codingon_kdt/spring_boot_jpa/service/UserService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +105,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

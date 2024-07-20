@@ -53,7 +53,30 @@ public class UserService {
     public void deleteUser(Long id){
         userRepository.deleteById(id);
     }
-
+    /////////////////////////////////////////////////
+    // 1. 사용자 이름으로 n행 조회
+    public List<UserDTO> getUserByUsername(String username){
+        List<User> users = userRepository.findByUsername(username);
+        List<UserDTO> userDTOs = new ArrayList<>();
+        for(User user : users){
+            userDTOs.add(convertToDto(user));
+        }
+        return userDTOs;
+    }
+    // 2. 검색어를 보냈을 때 사용자 이름/이메일에 특정 문자열이 포함된 모든 사용자 n명 찾기
+    public List<UserDTO> searchUsers(String keyword){
+        List<User> users = userRepository.findByUsernameContainingOrEmailContaining(keyword);
+        List<UserDTO> userDTOs = new ArrayList<>();
+        for(User user : users){
+            userDTOs.add(convertToDto(user));
+        }
+        return userDTOs;
+    }
+    //3. 이름이 존재하는지 조회
+    public boolean isUsernameExists(String username){
+        return userRepository.existsByUsername(username);
+    }
+    /////////////////////////////////////////
     //domain => dto
     private UserDTO convertToDto(User user) {
         return UserDTO.builder()
