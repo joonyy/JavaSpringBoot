@@ -3,9 +3,7 @@ package practice.mybatis_on_my_own.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import practice.mybatis_on_my_own.domain.Post;
-import practice.mybatis_on_my_own.domain.User;
 import practice.mybatis_on_my_own.dto.PostDTO;
-import practice.mybatis_on_my_own.dto.UserDTO;
 import practice.mybatis_on_my_own.mapper.PostMapper;
 
 import java.util.ArrayList;
@@ -17,7 +15,7 @@ public class PostService {
     private PostMapper postMapper;
 
     //모든 post의 list 가져오기
-    public List<PostDTO> getAllPosts(){
+    public List<PostDTO> getPosts(){
         List<Post> posts = postMapper.findAll();
         List<PostDTO> postDTOs = new ArrayList<>();
 

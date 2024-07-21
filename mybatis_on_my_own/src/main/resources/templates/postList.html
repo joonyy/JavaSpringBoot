@@ -3,17 +3,17 @@
 <head>
     <title>User List</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="/user.css">
+    <link rel="stylesheet" href="/post.css">
 </head>
 <body>
-<h1>User List</h1>
+<h1>Post List</h1>
 <a href="/posts/new" class="btn">게시글 작성하기</a>
 <table id="postTable">
     <thead>
     <tr>
         <th>No</th>
-        <th>Postname</th>
-        <th>Email</th>
+        <th>Title</th>
+        <th>writer</th>
         <th>Actions</th>
     </tr>
     </thead>
@@ -22,25 +22,26 @@
 </table>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        fetchUsers();
+        fetchPosts();
     });
 
-    function fetchUsers() {
-        axios.get('/api/users')
+    function fetchPosts() {
+        axios.get('/api/posts')
             .then(function (response) {
-                const users = response.data;
-                console.log(users);
-                const tbody = document.querySelector('#userTable tbody');
+                const posts = response.data;
+                console.log(posts);
+                const tbody = document.querySelector('#postTable tbody');
                 tbody.innerHTML = '';
-                users.forEach(function(user) {
+                posts.forEach(function(post) {
                     const row = `
                     <tr>
-                        <td>${user.no}</td>
-                        <td>${user.username}</td>
-                        <td>${user.email}</td>
+                        <td>${post.id}</td>
+                        <td>${post.title}</td>
+                        <td>${post.writer}</td>
                         <td class="action-buttons">
-                            <a href="/users/${user.id}/edit" class="btn">수정</a>
-                            <button onclick="deleteUser(${user.id})" class="btn btn-danger">삭제</button>
+                            <a href="/posts/${post.id}/edit" class="btn">수정</a>
+                            <button onclick="deletePost(${post.id})" class="btn btn-danger">삭제</button>
+                            <button onclick="reportPost(${post.id})" class="btn btn-report">신고</button>
                         </td>
                     </tr>
                 `;
@@ -52,11 +53,23 @@
             });
     }
 
-    function deleteUser(id) {
-        if (confirm('정말로 삭제하시겠습니까?')) {
-            axios.delete('/api/users/' + id)
+    function reportPost(id){
+        if(confirm('정말로 신고하시겠습니까?')) {
+            axios.post('/api/posts/' + id)
                 .then(function (response) {
-                    fetchUsers();
+                    fetchPosts();
+                })
+                .catch(function (error) {
+                    console.error('Error:', error);
+                });
+        }
+    }
+
+    function deletePost(id) {
+        if (confirm('정말로 삭제하시겠습니까?')) {
+            axios.delete('/api/posts/' + id)
+                .then(function (response) {
+                    fetchPosts();
                 })
                 .catch(function (error) {
                     console.error('Error:', error);

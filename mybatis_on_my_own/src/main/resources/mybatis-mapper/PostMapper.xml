@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0/EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="practice.mybatis_on_my_own.mapper.PostMapper">
+
+    <select id="findAll" resultType="practice.mybatis_on_my_own.domain.Post">
+        select * from posts
+    </select>
+
+    <select id="findById" parameterType="int" resultType="practice.mybatis_on_my_own.domain.Post">
+        select * from posts where id = #{id}
+    </select>
+
+    <insert id="create" parameterType="practice.mybatis_on_my_own.domain.Post"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into posts (writer, title, content) values (#{writer},#{title},#{content})
+    </insert>
+
+    <update id="update" parameterType="practice.mybatis_on_my_own.domain.Post">
+        update posts set content = #{content}, title=#{title} where id = #{id}    </update>
+
+    <delete id="delete" parameterType="int">
+        delete from posts where id=#{id}
+    </delete>
+
+</mapper>
