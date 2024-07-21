@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PostDetail</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/post.css">
+</head>
+<body>
+    <h1>PostDetail</h1>
+    <div id="PostDetail">
+        <h2 id="postTitle"></h2>
+        <p> 작성자 : <span id="postWriter"></span></p>
+        <p id="postContent"></p>
+    </div>
+    <a href="/posts" class="btn">목록으로 돌아가기</a>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const pathParts = window.location.pathname.split('/');
+        const lastPart = pathParts[pathParts.length - 1];
+        fetchPost(lastPart);
+    });
+function fetchPost(lastPart){
+    axios.get(`/api/posts/${lastPart}`)
+    .then(function (response){
+        const post = response.data;
+        document.getElementById('postTitle').innerText = post.title;
+        document.getElementById('postWriter').innerText = post.writer;
+        document.getElementById('postContent').innerText = post.content;
+    })
+    .catch(function(error){
+        console.error('Error:',error);
+    });
+}
+</script>
+</html>

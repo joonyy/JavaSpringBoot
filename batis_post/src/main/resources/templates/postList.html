@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Post List</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/post.css">
+</head>
+<body>
+<h1>Post List</h1>
+<a href="/posts/new" class="btn">게시글 작성하기</a>
+<div class="search-section">
+    <input type="text" id="searchInput" placeholder="제목 혹은 내용으로 검색해보세요">
+    <button onclick="searchPosts()" class="btn">검색</button>
+</div>
+
+<div class="search-section">
+    <input type="text" id="searchInputWriter" placeholder="이름으로 검색해보세요">
+    <button onclick="searchPostsByWriter()" class="btn">검색</button>
+</div>
+
+<table id="postTable">
+    <thead>
+    <tr>
+        <th>No</th>
+        <th>Title</th>
+        <th>writer</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchPosts();
+    });
+
+    function fetchPosts() {
+        axios.get('/api/posts')
+            .then(function (response) {
+                const posts = response.data;
+                updatePostTable(posts);
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+    }
+
+    function searchPosts(){
+        const keyword = document.getElementById('searchInput').value;
+        axios.get(`/api/posts/search?keyword=${keyword}`)
+        .then(function(response){
+            const posts = response.data;
+            updatePostTable(posts);
+        })
+        .catch(function(error){
+            console.error('Error:',error);
+        })
+    }
+
+    function searchPostsByWriter(){
+        const writer = document.getElementById('searchInputWriter').value;
+        axios.get(`/api/posts/writer?writer=${writer}`)
+        .then(function(response){
+            const posts = response.data;
+            updatePostTable(posts);
+        })
+        .catch(function(error){
+            console.error('Error:',error);
+        })
+    }
+
+    function updatePostTable(posts){
+    const tbody = document.querySelector('#postTable tbody');
+    tbody.innerHTML = '';
+    posts.forEach(function(post){
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${post.id}</td>
+            <td>${post.title}</td>
+            <td>${post.writer}</td>
+            <td class="action-buttons">
+                <a href="/posts/${post.id}/edit" class="btn">수정</a>
+                <button onclick="deletePost(${post.id})" class="btn btn-danger">삭제</button>
+            </td>
+        `;
+        row.addEventListener('click', function() {
+            window.location.href = `/posts/${post.id}`;
+        });
+        row.querySelectorAll('.btn').forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        });
+        tbody.appendChild(row);
+    })
+}
+
+    function deletePost(id) {
+        if (confirm('정말로 삭제하시겠습니까?')) {
+            axios.delete('/api/posts/' + id)
+                .then(function (response) {
+                    fetchPosts();
+                })
+                .catch(function (error) {
+                    console.error('Error:', error);
+                });
+        }
+    }
+</script>
+</body>
+</html>
