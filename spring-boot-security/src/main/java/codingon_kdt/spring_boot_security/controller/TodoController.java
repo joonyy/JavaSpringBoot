@@ -18,7 +18,6 @@ public class TodoController {
     @Autowired
     private TodoService service;
 
-
     //Response Entity란?
     // - 해당 객체를 이용해 상태코드랑 응답 본문 등을 설정해서 클라이언트에게 "응답"
     // 메서드
