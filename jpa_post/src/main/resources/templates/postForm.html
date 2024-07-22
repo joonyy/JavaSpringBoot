@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Post Form</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/post.css">
+</head>
+<body>
+<h1 id="formTitle">Create Post</h1>
+<form id="postForm">
+    <div>
+        <label for="writer">Writer:</label>
+        <input type="text" id="writer" required>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" required>
+    </div>
+    <div>
+        <label for="content">Content:</label>
+        <input type="text" id="content" required>
+    </div>
+    <button type="submit" id="submitButton" class="btn">작성하기</button>
+</form>
+<a href="/posts" class="btn" style="margin-top: 10px;">목록으로</a>
+<script>
+    let postId = null;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const pathParts = window.location.pathname.split('/');
+        const lastPart = pathParts[pathParts.length - 1];
+
+        if (lastPart === 'edit') {
+            postId = pathParts[pathParts.length - 2];
+            document.getElementById('formTitle').textContent = 'Edit Post';
+            document.getElementById('submitButton').textContent = '수정하기';
+            fetchUser(postId);
+        } else {
+            postId = null;
+            document.getElementById('formTitle').textContent = 'Create Post';
+            document.getElementById('submitButton').textContent = '작성하기';
+        }
+
+        document.getElementById('postForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (postId) {
+                updatePost();
+            } else {
+                createPost();
+            }
+        });
+    });
+
+    function fetchUser(id) {
+        axios.get('/api/posts/' + id)
+            .then(function (response) {
+                const post = response.data;
+                document.getElementById('writer').value = post.writer;
+                document.getElementById('title').value = post.title;
+                document.getElementById('content').value = post.content;
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+    }
+
+    function createPost() {
+        const postData = {
+            writer: document.getElementById('writer').value,
+            title: document.getElementById('title').value,
+            content: document.getElementById('content').value
+        };
+
+        axios.post('/api/posts', postData)
+            .then(function (response) {
+                window.location.href = '/posts';
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+    }
+
+    function updatePost() {
+        const postData = {
+            writer: document.getElementById('writer').value,
+            title: document.getElementById('title').value,
+            content: document.getElementById('content').value
+        };
+
+        axios.put('/api/posts/' + postId, postData)
+            .then(function (response) {
+                window.location.href = '/posts';
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+    }
+</script>
+</body>
+</html>
