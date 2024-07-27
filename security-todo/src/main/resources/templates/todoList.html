@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todo List</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/todo.css">
+</head>
+<body>
+<h1>Todo List</h1>
+<div class="btn-container">
+    <a href="/todos/new"> 투두 등록 </a>
+</div>
+<table id="todoTable">
+    <thead>
+        <tr>
+            <th> done </th>
+            <th> Todo Title </th>
+            <th> userId </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+</body>
+<script>
+    document.addEnventListener('DOMContentLoaded', function(){
+        fetchTodos();
+    });
+</script>
+</html>

@@ -1,7 +1,10 @@
 package codingon_kdt.spring_boot_security.dto;
 
 import codingon_kdt.spring_boot_security.domain.TodoEntity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Builder
 @NoArgsConstructor
@@ -12,15 +15,13 @@ public class TodoDTO {
     private String title;
     private boolean done;
 
-    //entity => dto
-    public TodoDTO(final TodoEntity entity){
+    public TodoDTO(final TodoEntity entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
         this.done = entity.isDone();
     }
 
-    //dto => entity
-    public static final TodoEntity todoEntity(final TodoDTO dto){
+    public static final TodoEntity toEntity(final TodoDTO dto) {
         return TodoEntity.builder()
                 .id(dto.getId())
                 .title(dto.getTitle())
@@ -29,6 +30,5 @@ public class TodoDTO {
     }
 }
 
-//참고 : @Data 어노테이션
-// - @Getter, @Setter, @RequiredConstructor, @ToString, @EqualsAndHashCode
-//@RequiredConstructor => 필수 생성자를 만들어줌.
+// 참고. @Data 어노테이션
+// - @Getter, @Setter, @RequiredConstructor, @ToString, @EqualsAndHasCode

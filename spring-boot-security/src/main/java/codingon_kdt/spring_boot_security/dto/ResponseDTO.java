@@ -13,6 +13,6 @@ import java.util.List;
 @Data
 public class ResponseDTO<T> {
     private String error;
-    //Generic을 이용해, 200 status code로 응답 시 해당 type의 리스트를 반환하도록 해줌.
+    // Generic 을 이용해 200 status code 로 응답 시 해당 type 의 리스트를 반환하도록
     private List<T> data;
 }

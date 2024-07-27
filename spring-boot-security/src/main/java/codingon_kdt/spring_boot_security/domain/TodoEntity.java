@@ -8,10 +8,10 @@ import lombok.*;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "Todo")
+@Table(name="Todo")
 public class TodoEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//auto-increment와 동일.
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", updatable = false)
     private Long id;
 
